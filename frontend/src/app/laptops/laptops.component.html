@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="CategoriesPart">
+    <h1>Tech Products</h1>
+    <div class="SeparatingLine"></div>
+    <div class="Categories">
+      <a routerLinkActive="activeClass" routerLink="/dashboard/phones"
+        >Phones</a
+      >
+      <a routerLinkActive="activeClass" routerLink="/dashboard/laptops"
+        >Laptops</a
+      >
+      <a routerLinkActive="activeClass" routerLink="/dashboard/tablets"
+        >Tablets</a
+      >
+    </div>
+  </div>
+  <div class="searchBarAndCompareButton">
+    <div class="searchBar">
+      <form (ngSubmit)="getResults()" #form="ngForm">
+        <input
+          type="search"
+          name="quary"
+          [(ngModel)]="quary"
+          placeholder="Search Products"
+        />
+      </form>
+    </div>
+    <button (click)="goCompare()">Compare</button>
+  </div>
+</div>
+<div class="container">
+  <h2 *ngIf="isSearchEmpty">
+    No matches found. Please check your spelling or try another product name.
+  </h2>
+  <div class="cards" *ngIf="allIstrue || searchIsTrue">
+    <div class="card" *ngFor="let laptop of laptopsData; let i = index">
+      <img
+        src="https://laptopmedia.com/wp-content/uploads/2023/03/1-7-e1678204902490-680x404.jpg"
+        alt="laptop"
+      />
+      <div class="description">
+        <h3>{{ laptop.ProductName }}</h3>
+        <p>{{ laptop.Brand }}</p>
+        <h4>${{ laptop.Price }}</h4>
+        <ul>
+          <li>{{ laptop.Spec1 }}</li>
+          <li>{{ laptop.Spec2 }}</li>
+          <li>{{ laptop.Spec3 }}</li>
+        </ul>
+        <div class="checkbox-wrapper-10">
+          <input
+            (change)="doIfChecked(laptop, $event)"
+            class="tgl tgl-flip"
+            [id]="i"
+            type="checkbox"
+          />
+          <label
+            class="tgl-btn"
+            data-tg-off="Compare"
+            data-tg-on="Remove"
+            [for]="i"
+          ></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

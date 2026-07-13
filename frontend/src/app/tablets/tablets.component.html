@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="CategoriesPart">
+    <h1>Tech Products</h1>
+    <div class="SeparatingLine"></div>
+    <div class="Categories">
+      <a routerLinkActive="activeClass" routerLink="/dashboard/phones"
+        >Phones</a
+      >
+      <a routerLinkActive="activeClass" routerLink="/dashboard/laptops"
+        >Laptops</a
+      >
+      <a routerLinkActive="activeClass" routerLink="/dashboard/tablets"
+        >Tablets</a
+      >
+    </div>
+  </div>
+  <div class="searchBarAndCompareButton">
+    <div class="searchBar">
+      <form (ngSubmit)="getResults()" #form="ngForm">
+        <input
+          type="search"
+          name="quary"
+          [(ngModel)]="quary"
+          placeholder="Search Products"
+        />
+      </form>
+    </div>
+    <button (click)="goCompare()">Compare</button>
+  </div>
+</div>
+<div class="container">
+  <h2 *ngIf="isSearchEmpty">
+    No matches found. Please check your spelling or try another product name.
+  </h2>
+  <div class="cards" *ngIf="allIstrue || searchIsTrue">
+    <div class="card" *ngFor="let tablet of tabletsData; let i = index">
+      <img
+        src="https://image-us.samsung.com/us/tablets/galaxy-tab-s9/products/tab-s9-ultra/gallery-images/graphite/1.jpg"
+        alt="tablet"
+      />
+      <div class="description">
+        <h3>{{ tablet.ProductName }}</h3>
+        <p>{{ tablet.Brand }}</p>
+        <h4>${{ tablet.Price }}</h4>
+        <ul>
+          <li>{{ tablet.Spec1 }}</li>
+          <li>{{ tablet.Spec2 }}</li>
+          <li>{{ tablet.Spec3 }}</li>
+        </ul>
+        <div class="checkbox-wrapper-10">
+          <input
+            (change)="doIfChecked(tablet, $event)"
+            class="tgl tgl-flip"
+            [id]="i"
+            type="checkbox"
+          />
+          <label
+            class="tgl-btn"
+            data-tg-off="Compare"
+            data-tg-on="Remove"
+            [for]="i"
+          ></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

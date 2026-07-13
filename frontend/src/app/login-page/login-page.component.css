@@ -1,0 +1,87 @@
+/* Form Styles */
+
+.loginpage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  transform: translateY(65px);
+  scale: 1.1;
+}
+
+.form {
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 7px 20px 0px rgb(194, 194, 194);
+}
+
+h1 {
+  margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0px 20px;
+  font-size: 14px;
+  color: rgb(99, 99, 99);
+}
+
+.texts {
+  margin: 40px 0px;
+  text-align: center;
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input {
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 7px;
+  padding: 11px 10px;
+  margin-top: 5px;
+  display: block;
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+
+input:focus {
+  transition-timing-function: linear;
+  border: 2px #3b82f6 solid;
+  transition-duration: 0.1s;
+  transition-property: border;
+}
+
+button {
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #3b82f6;
+  font-weight: 550;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+button:active {
+  background-color: #0051d3;
+}
+@media (max-width: 500px) {
+  .form {
+    width: 75%;
+  }
+}

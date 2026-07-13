@@ -1,0 +1,61 @@
+<div class="loader-container" *ngIf="stopLoader">
+  <div class="loader">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+</div>
+<div class="container" *ngIf="isGeted">
+  <a routerLink="/dashboard/phones">Go back to products</a>
+  <div class="texts">
+    <h1>
+      <span *ngFor="let product of tranfaredComparedProducts; let i = index"
+        >{{ product.ProductName }}
+        <span *ngIf="i < tranfaredComparedProducts.length - 1"> vs </span>
+      </span>
+    </h1>
+    <p>Make better decisions with clear product comparisons</p>
+  </div>
+  <div class="comparison-table">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let product of tranfaredComparedProducts">
+            ⭐ {{ product.ProductName }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Price</td>
+          <td *ngFor="let product of tranfaredComparedProducts">
+            💲{{ product.Price }}
+          </td>
+        </tr>
+        <tr>
+          <td>Spec1</td>
+          <td *ngFor="let product of tranfaredComparedProducts">
+            ✔️ {{ product.Spec1 }}
+          </td>
+        </tr>
+        <tr>
+          <td>Spec2</td>
+          <td *ngFor="let product of tranfaredComparedProducts">
+            ✔️ {{ product.Spec2 }}
+          </td>
+        </tr>
+        <tr>
+          <td>Spec3</td>
+          <td *ngFor="let product of tranfaredComparedProducts">
+            ✔️ {{ product.Spec3 }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="recommendationPart">
+    <h2>Recommendation 👌</h2>
+    <p class="recommendation">{{ recomendation.recommendation }}</p>
+  </div>
+</div>
